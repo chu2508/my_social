@@ -1,0 +1,11 @@
+.bottom_nav {
+  box-shadow: 0 0px 100px 10px white;
+  transform: translateY(100%);
+  transition: transform 0.25s ease-in-out;
+  &.isIn {
+    transform: translateY(0%);
+  }
+  &.isOut {
+    transform: translateY(100%);
+  }
+}
