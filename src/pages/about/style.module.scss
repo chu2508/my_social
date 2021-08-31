@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  padding: 20px 30px;
+  align-items: center;
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 6px solid white;
+    margin-right: 24px;
+  }
+  .right {
+    font-size: 24px;
+    flex: 1 1;
+    display: flex;
+    align-items: center;
+  }
+  .title {
+    flex: 1 0;
+  }
+  .name {
+    font-size: 32px;
+    flex: 1 0;
+    line-height: 2;
+    font-weight: bold;
+    }
+  .ident {
+    font-size: 24px;
+    flex: 1 0;
+    display: flex;
+    align-items: center;
+    .text {
+      margin-left: 10px;
+    }
+  }
+  .view_more {
+    display: flex;
+    align-items: center;
+  }
+}

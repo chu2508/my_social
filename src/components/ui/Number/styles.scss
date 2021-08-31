@@ -1,0 +1,10 @@
+.my-digit {
+  display: inline-block;
+  overflow: hidden;
+  height: 48px;
+  &__val {
+    font-size: 32px;
+    line-height: 48px;
+    display: block;
+  }
+}
