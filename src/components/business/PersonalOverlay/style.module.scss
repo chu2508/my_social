@@ -1,0 +1,22 @@
+.badge_overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  .left-top {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+  }
+}
+.badge {
+  display: flex;
+  align-items: center;
+  padding: 2px 24px;
+  border-radius: 99999px;
+  background: rgba($color: #000000, $alpha: .25);
+  font-size: 24px;
+  color: white;
+}

@@ -1,0 +1,25 @@
+.card {
+  border-radius: 12px;
+  background: white;
+  width: 100%;
+  overflow: hidden;
+  .cover_wrap {
+    position: relative;
+    width: 100%;
+    .placeholder {
+      width: 100%;
+      padding-top: 100%;
+    }
+  }
+  .cover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    .avatar {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

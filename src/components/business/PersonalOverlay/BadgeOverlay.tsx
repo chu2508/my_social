@@ -1,5 +1,7 @@
 import PersonalBadgeType from "@src/types/PersonalBadgeType";
 import { View } from "@tarojs/components";
+import { BiHeart } from "react-icons/bi";
+import styles from './style.module.scss';
 
 type Position = "left-top" | "right-top" | "left-bottom" | "right-bottom";
 interface BadgeProps {
@@ -30,19 +32,19 @@ const matchBadgeComponent = (type: PersonalBadgeType) => {
 };
 
 const LikedBadge = () => {
-  return <View>Liked</View>;
+  return <View className={styles.badge}><BiHeart color="pink" size="14" /> Liked</View>;
 };
 const BothLikedBadge = () => {
-  return <View>BothLiked</View>;
+  return <View className={styles.badge}><BiHeart color="pink" size="14" /> BothLiked</View>;
 };
 const SupperLikedBadge = () => {
-  return <View>SupperLiked</View>;
+  return <View className={styles.badge}>SupperLiked</View>;
 };
 const NotLikedBadge = () => {
-  return <View>NotLiked</View>;
+  return <View className={styles.badge}>NotLiked</View>;
 };
 const CertifiedBadge = () => {
-  return <View>Certified</View>;
+  return <View className={styles.badge}>Certified</View>;
 };
 
 interface BadgeOverlayProps {
@@ -73,11 +75,11 @@ const BadgeOverlay = (props: BadgeOverlayProps) => {
     [[], [], [], []] as [BadgeProps[], BadgeProps[], BadgeProps[], BadgeProps[]]
   );
   return (
-    <View>
+    <View className={styles.badge_overlay}>
       {list.map((badges, index) => {
         const positionClassName = POSITIONS[index];
         return (
-          <View className={`${positionClassName}`} key={index}>
+          <View className={`${styles[positionClassName]}`} key={index}>
             {badges.map((badge, idx) => {
               const { type } = badge;
               const Badge = matchBadgeComponent(type);
