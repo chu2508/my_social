@@ -1,6 +1,8 @@
-import { Image, Text, View, CoverImage } from "@tarojs/components";
-import faker, { fake } from "faker";
+import { Image, Text, View } from "@tarojs/components";
+import faker from "faker";
 import { BiCheckShield, BiChevronRight } from "react-icons/bi";
+import OptionList from "./components/OptionList";
+import SocialCounter from "./components/SocialCounter";
 import styles from "./style.module.scss";
 
 const About = () => {
@@ -23,23 +25,9 @@ const About = () => {
           </View>
         </View>
       </View>
-      <View>
-        <View>
-          <View>45</View>
-          <View>My Liked</View>
-        </View>
-        <View>
-          <View>
-            <Image src={faker.image.image()} />
-            <View>20</View>
-          </View>
-          <View>Liked Me</View>
-        </View>
-        <View>
-          <View>45</View>
-          <View>Recent Viewed</View>
-        </View>
-      </View>
+      <SocialCounter />
+      <OptionList />
+      <View style={{textAlign:'center'}}>青藤号：123456789</View>
     </View>
   );
 };

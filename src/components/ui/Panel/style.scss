@@ -1,0 +1,28 @@
+.my-panel {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  &__header {
+    position: relative;
+    padding-left: 30px;
+    &::before {
+      width: 16px;
+      height: 24px;
+      border-radius: 12px;
+      content: "";
+      background: tomato;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &__title {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.8;
+  }
+  &__content {
+    font-size: 28px;
+  }
+}
