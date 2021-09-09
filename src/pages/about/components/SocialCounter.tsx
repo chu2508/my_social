@@ -11,7 +11,7 @@ const SocialCounter = () => {
       </View>
       <View  className={` ${styles.item}`}>
         <View className={`${styles.border} ${styles.count}`}>
-          <Image className={styles.img} src={faker.image.image()} />
+          <Image className={styles.img} src={faker.image.avatar()} />
           <View className={styles.number}>20</View>
         </View>
         <View className={styles.title}>喜欢我的</View>
