@@ -1,3 +1,7 @@
-export function* helloSaga() {
-  console.log('Hello Sagas!');
+import { all } from "redux-saga/effects";
+import { watchAppInit } from "./init";
+
+
+export default function* rootSaga() {
+  yield all([watchAppInit()]);
 }
