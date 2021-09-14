@@ -1,9 +1,12 @@
+import { RootState } from "@src/store/reducer";
+import IUserProfile from "@src/types/IUserProfile";
 import { Text, View } from "@tarojs/components";
 import { ViewProps } from "@tarojs/components/types/View";
 import Taro from "@tarojs/taro";
 import classNames from "classnames";
 import React, { ReactElement } from "react";
 import { BiHappy, BiHeart, BiMessage } from "react-icons/bi";
+import { useSelector } from "react-redux";
 import styles from "./style.module.scss";
 
 interface NavItemProps extends ViewProps {
@@ -38,6 +41,7 @@ interface BottomNavBarProps extends ViewProps {
 }
 const BottomNavBar = (props: BottomNavBarProps) => {
   const { activeIndex = 0 } = props;
+  const profile = useSelector<RootState, IUserProfile>(state => state.application.userProfile);
 
   const onNavClick = (path: string) => {
     Taro.navigateTo({ url: path });
@@ -49,13 +53,22 @@ const BottomNavBar = (props: BottomNavBarProps) => {
         const className = classNames(styles.item_icon, {
           [styles["is-active"]]: index === activeIndex
         });
+        const onClick = () =>{
+          if (profile.isTourist) {
+            return Taro.showToast({
+              duration: 5000,
+              title: 'Is tourist'
+            })
+          }
+          onNavClick(config.path)
+        }
         const icon = <config.icon size={24} className={className} />;
         return (
           <NavItem
             key={config.name}
             {...config}
             icon={icon}
-            onClick={() => onNavClick(config.path)}
+            onClick={onClick}
           />
         );
       })}

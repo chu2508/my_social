@@ -1,3 +1,4 @@
+import { createTouristUserProfile } from "@src/domain/UserProfile";
 import IUserProfile from "@src/types/IUserProfile";
 
 /**
@@ -5,9 +6,5 @@ import IUserProfile from "@src/types/IUserProfile";
  * @return UserProfile
  */
 export const getCurrentUser = async (): Promise<IUserProfile> => {
-  return {
-    id: "0",
-    nickname: "游客",
-    isTourist: true
-  };
+  return createTouristUserProfile()
 };
