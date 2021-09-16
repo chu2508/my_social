@@ -1,19 +1,22 @@
+import { HomeService } from "@src/pages/home/hooks/useHomeService";
 import { Text, View } from "@tarojs/components";
 import { ViewProps } from "@tarojs/components/types/View";
 import Taro from "@tarojs/taro";
 import classNames from "classnames";
-import React, { ReactElement } from "react";
+import React, { ReactElement, useContext } from "react";
 import { BiHappy, BiHeart, BiMessage } from "react-icons/bi";
 import styles from "./style.module.scss";
 
 interface NavItemProps extends ViewProps {
   icon: ReactElement;
   name: string;
+  count?: number;
 }
 
 const NavItem = (props: NavItemProps) => {
   return (
     <View {...props} className={styles.item_wrap}>
+      {!!props.count && <View>{props.count}</View>}
       {props.icon}
       <Text className={styles.item_name}>{props.name}</Text>
     </View>
@@ -38,6 +41,8 @@ interface BottomNavBarProps extends ViewProps {
 }
 const BottomNavBar = (props: BottomNavBarProps) => {
   const { activeIndex = 0 } = props;
+  const { people, likeTotal, notLikeTotal } = useContext(HomeService);
+  const count = people.length - likeTotal - notLikeTotal;
 
   const onNavClick = (path: string) => {
     Taro.navigateTo({ url: path });
@@ -54,6 +59,7 @@ const BottomNavBar = (props: BottomNavBarProps) => {
           <NavItem
             key={config.name}
             {...config}
+            count={index === 0 ? count : undefined}
             icon={icon}
             onClick={() => onNavClick(config.path)}
           />

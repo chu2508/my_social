@@ -1,31 +1,16 @@
-import { Component } from 'react'
-import { Provider } from 'react-redux'
-import './app.scss'
-import configStore from './store'
-import { appInitAction } from './store/actions/application'
+import { FC } from "@tarojs/taro";
+import { Provider } from "react-redux";
+import "./app.scss";
+import useHomeService, { HomeService } from "./pages/home/hooks/useHomeService";
+import configStore from "./store";
 
-const store = configStore()
-class App extends Component {
-
-
-  componentDidMount () {}
-
-  componentDidShow () {}
-
-  componentDidHide () {}
-
-  componentDidCatchError () {}
-
-  onLaunch() {
-    store.dispatch(appInitAction())
-  }
-
-  // this.props.children 是将要会渲染的页面
-  render () {
-    return <Provider  store={store}>
-     {this.props.children}
+const store = configStore();
+const App: FC = (props) => {
+  return (
+    <Provider store={store}>
+      <HomeService.Provider value={useHomeService()}>{props.children}</HomeService.Provider>
     </Provider>
-  }
+  );
 }
 
-export default App
+export default App;
