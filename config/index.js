@@ -1,4 +1,5 @@
 import path from 'path';
+
 const config = {
   projectName: 'my_social',
   date: '2021-8-27',
@@ -12,6 +13,8 @@ const config = {
   outputRoot: 'dist',
   plugins: [],
   alias: {
+    '@bis': path.resolve(__dirname, '..', 'src/components/business'),
+    '@ui': path.resolve(__dirname, '..', 'src/components/ui'),
     '@src': path.resolve(__dirname, '..', 'src/'),
   },
   defineConstants: {
