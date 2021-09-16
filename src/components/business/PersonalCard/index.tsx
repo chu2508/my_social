@@ -1,4 +1,4 @@
-import ISimplePersonInfo from "@src/types/ISimplePersonInfo";
+import ISimplePersonInfo from "@src/domain/types/ISimplePersonInfo";
 import { Image, View } from "@tarojs/components";
 import { ReactElement } from "react";
 import styles from './style.module.scss';
