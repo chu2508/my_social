@@ -1,4 +1,4 @@
-interface ISimplePersonInfo {
+interface ISimplePersonalInfo {
   id: string;
   avatar: string;
   name: string;
@@ -9,4 +9,4 @@ interface ISimplePersonInfo {
   isCertified: boolean;
 }
 
-export default ISimplePersonInfo;
+export default ISimplePersonalInfo;

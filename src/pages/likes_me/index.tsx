@@ -1,13 +1,13 @@
 import { PersonalCard, BadgeOverlay } from "@src/components/business";
-import ISimplePersonInfo from "@src/domain/types/ISimplePersonInfo";
+import ISimplePersonalInfo from "@src/app/types/ISimplePersonalInfo";
 import { View } from "@tarojs/components";
 import { useState } from "react";
 
 const LikesMe = () => {
-  const [persons] = useState<ISimplePersonInfo[]>([]);
+  const [persons] = useState<ISimplePersonalInfo[]>([]);
   const col1 = persons.filter((_, i) => i % 2 === 1);
   const col2 = persons.filter((_, i) => i % 2 === 0);
-  const render = (item: ISimplePersonInfo) => (
+  const render = (item: ISimplePersonalInfo) => (
     <PersonalCard
       key={item.id}
       person={item}

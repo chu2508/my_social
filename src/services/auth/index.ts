@@ -1,4 +1,4 @@
-import IUserProfile from "@src/domain/types/IUserProfile";
+import IUserProfile from "@src/app/types/IUserProfile";
 
 /**
  * 获取当前用户信息

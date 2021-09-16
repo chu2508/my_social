@@ -1,4 +1,4 @@
-import IUserProfile from "@src/domain/types/IUserProfile";
+import IUserProfile from "@src/app/types/IUserProfile";
 
 export const types = {
   APP_INIT: "@app/init",

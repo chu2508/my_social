@@ -1,11 +1,11 @@
 import { BadgeOverlay, PersonalCard } from "@src/components/business";
-import ISimplePersonInfo from "@src/domain/types/ISimplePersonInfo";
+import ISimplePersonalInfo from "@src/app/types/ISimplePersonalInfo";
 import { View } from "@tarojs/components";
 import faker from "faker";
 import { useState } from "react";
 import { BiChat } from "react-icons/bi";
 
-const mockData = Array.from({ length: 5 }).map<ISimplePersonInfo>((_, i) => {
+const mockData = Array.from({ length: 5 }).map<ISimplePersonalInfo>((_, i) => {
   return {
     id: i + 1 + "",
     avatar: faker.image.avatar(),
@@ -18,10 +18,10 @@ const mockData = Array.from({ length: 5 }).map<ISimplePersonInfo>((_, i) => {
   };
 });
 const ILikes = () => {
-  const [persons] = useState<ISimplePersonInfo[]>(mockData);
+  const [persons] = useState<ISimplePersonalInfo[]>(mockData);
   const col1 = persons.filter((_, i) => i % 2 === 1);
   const col2 = persons.filter((_, i) => i % 2 === 0);
-  const render = (person: ISimplePersonInfo) => (
+  const render = (person: ISimplePersonalInfo) => (
     <View style={{ marginBottom: "15px" }} key={person.id}>
       <PersonalCard
         person={person}

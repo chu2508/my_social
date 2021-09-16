@@ -1,12 +1,12 @@
-import ISimplePersonInfo from "@src/domain/types/ISimplePersonInfo";
+import ISimplePersonalInfo from "@src/app/types/ISimplePersonalInfo";
 import { Image, View } from "@tarojs/components";
 import { ReactElement } from "react";
 import styles from './style.module.scss';
 
-type RenderFunc = (person: ISimplePersonInfo) => ReactElement;
+type RenderFunc = (person: ISimplePersonalInfo) => ReactElement;
 
 export interface PersonalCardProps {
-  person: ISimplePersonInfo;
+  person: ISimplePersonalInfo;
   footer?: RenderFunc;
   overlay?: RenderFunc;
 }
