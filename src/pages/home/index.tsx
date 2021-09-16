@@ -1,4 +1,4 @@
-import { BottomNavBar } from "@src/components/business";
+import BottomBar from "@bis/Navigation/BottomBar/BottomBar";
 import PersonalInfo from "@src/components/business/PersonalInfo";
 import { View } from "@tarojs/components";
 import classNames from "classnames";
@@ -18,7 +18,7 @@ const Home = () => {
         })}
       >
         <BottomOperator />
-        <BottomNavBar
+        <BottomBar
           className={styles.bottom_nav_shadow}
           style={{ position: "relative" }}
         />
