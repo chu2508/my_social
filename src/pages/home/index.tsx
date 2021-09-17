@@ -4,14 +4,14 @@ import IPersonalInfo from "@src/types/IPersonalInfo";
 import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { useContext } from "react";
+import useStrangeRecommendationService, { StrangeRecommendationService } from "../../components/business/StrangeRecommendation/useStrangeRecommendationService";
 import BottomOperator from "./components/BottomOperator";
 import NextSeek from "./components/NextSeek/NextSeek";
-import useHomeService, { HomeService } from "./hooks/useHomeService";
 import useScrollDirection from "./hooks/useScrollDirection";
 import styles from "./style.module.scss";
 
 const CurrentSeek = () => {
-  const { person } = useContext(HomeService);
+  const { person } = useContext(StrangeRecommendationService);
   return (
     <>
       <PersonalInfo resource={person as IPersonalInfo} />
@@ -20,11 +20,11 @@ const CurrentSeek = () => {
 };
 
 const Home = () => {
-  const state = useHomeService();
+  const state = useStrangeRecommendationService();
   const scrollDirection = useScrollDirection();
 
   return (
-    <HomeService.Provider value={state}>
+    <StrangeRecommendationService.Provider value={state}>
       <View className={styles.page}>
         {state.person !== null && <CurrentSeek />}
         {state.person === null && <NextSeek />}
@@ -44,7 +44,7 @@ const Home = () => {
         )}
         {state.person === null && <BottomNavBar />}
       </View>
-    </HomeService.Provider>
+    </StrangeRecommendationService.Provider>
   );
 };
 

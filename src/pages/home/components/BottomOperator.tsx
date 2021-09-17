@@ -2,11 +2,11 @@ import { View } from "@tarojs/components";
 import { useContext } from "react";
 import { BiX } from "react-icons/bi";
 import { BsFillHeartFill } from "react-icons/bs";
-import { HomeService } from "../hooks/useHomeService";
+import { StrangeRecommendationService } from "../../../components/business/StrangeRecommendation/useStrangeRecommendationService";
 import styles from "../style.module.scss";
 
 const BottomOperator = () => {
-  const { person, like, notLike } = useContext(HomeService);
+  const { person, like, notLike } = useContext(StrangeRecommendationService);
   return (
     <View className={styles.operate}>
       <View

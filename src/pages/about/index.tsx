@@ -1,5 +1,6 @@
 import { BottomNavBar } from "@src/components/business";
 import { Image, Text, View } from "@tarojs/components";
+import { useDidShow } from "@tarojs/taro";
 import faker from "faker";
 import { BiCheckShield, BiChevronRight } from "react-icons/bi";
 import OptionList from "./components/OptionList";
@@ -8,6 +9,9 @@ import styles from "./style.module.scss";
 
 const About = () => {
   const avatar = faker.image.avatar();
+  useDidShow(() => {
+    console.log('about');
+  })
   return (
     <View>
       <View className={styles.header}>
@@ -28,7 +32,9 @@ const About = () => {
       </View>
       <SocialCounter />
       <OptionList />
-      <View style={{textAlign:'center', fontSize: '12px'}}>青藤号:123456789</View>
+      <View style={{ textAlign: "center", fontSize: "12px" }}>
+        青藤号:123456789
+      </View>
       <BottomNavBar activeIndex={2} />
     </View>
   );

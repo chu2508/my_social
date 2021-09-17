@@ -10,7 +10,6 @@ const useScrollDirection = () => {
     ref.current = payload.scrollTop;
     setDirection(currentDirection);
   });
-  console.log(direction)
   return direction;
 };
 

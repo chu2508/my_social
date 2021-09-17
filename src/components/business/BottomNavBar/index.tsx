@@ -1,7 +1,9 @@
-import { HomeService } from "@src/pages/home/hooks/useHomeService";
+import { AuthenticationService } from "@bis/Authentication/useAuthenticationService";
+import { StrangeRecommendationService } from "@bis/StrangeRecommendation/useStrangeRecommendationService";
+import useForceUpdate from "@src/tools/useForceUpdate";
 import { Text, View } from "@tarojs/components";
 import { ViewProps } from "@tarojs/components/types/View";
-import Taro from "@tarojs/taro";
+import Taro, { useDidShow } from "@tarojs/taro";
 import classNames from "classnames";
 import React, { ReactElement, useContext } from "react";
 import { BiHappy, BiHeart, BiMessage } from "react-icons/bi";
@@ -32,7 +34,7 @@ const NAV_CONFIG = [
   {
     icon: BiMessage,
     name: "消息",
-    path: "/pages/chat/index"
+    path: "/pages/message/index"
   },
   { icon: BiHappy, name: "我的", path: "/pages/about/index" }
 ];
@@ -41,11 +43,26 @@ interface BottomNavBarProps extends ViewProps {
 }
 const BottomNavBar = (props: BottomNavBarProps) => {
   const { activeIndex = 0 } = props;
-  const { people, likeTotal, notLikeTotal } = useContext(HomeService);
-  const count = people.length - likeTotal - notLikeTotal;
+  const { usedTotal } = useContext(StrangeRecommendationService);
+  const { profile } = useContext(AuthenticationService);
+  const forceUpdate = useForceUpdate();
+
+  useDidShow(() => {
+    console.log('bar')
+  })
+
+  // useEffect(() => {
+  //   const instance = getCurrentInstance();
+  //   if (instance.router) eventCenter.on(instance.router.onShow, forceUpdate);
+  //   return () => {
+  //     instance.router && eventCenter.off(instance.router.onShow, forceUpdate);
+  //   };
+  // }, [forceUpdate]);
 
   const onNavClick = (path: string) => {
-    Taro.navigateTo({ url: path });
+    if (profile.isTourist) {
+    }
+    Taro.switchTab({ url: path });
   };
 
   return (
@@ -59,7 +76,7 @@ const BottomNavBar = (props: BottomNavBarProps) => {
           <NavItem
             key={config.name}
             {...config}
-            count={index === 0 ? count : undefined}
+            count={index === 0 ? usedTotal : undefined}
             icon={icon}
             onClick={() => onNavClick(config.path)}
           />

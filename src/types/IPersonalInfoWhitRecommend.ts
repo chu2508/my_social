@@ -1,5 +1,5 @@
 import IPersonalInfo from "./IPersonalInfo";
 
-export interface IPersonalInfoWhitSeek extends IPersonalInfo {
+export interface IPersonalInfoWhitRecommend extends IPersonalInfo {
   likeStatus: boolean | null;
 }
