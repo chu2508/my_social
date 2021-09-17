@@ -1,5 +1,5 @@
-import { BottomNavBar } from "@src/components/business";
-import PersonalInfo from "@src/components/business/PersonalInfo";
+import BottomBar from "@bis/Navigation/BottomBar/BottomBar";
+import InfoDetail from "@bis/Personal/InfoDetail/InfoDetail";
 import { View } from "@tarojs/components";
 import classNames from "classnames";
 import BottomOperator from "./components/BottomOperator";
@@ -10,7 +10,7 @@ const Home = () => {
   const scrollDirection = useScrollDirection();
   return (
     <View className={styles.page}>
-      <PersonalInfo />
+      <InfoDetail />
       <View
         className={classNames(styles.bottom_nav, {
           [styles.isIn]: scrollDirection === "top",
@@ -18,7 +18,7 @@ const Home = () => {
         })}
       >
         <BottomOperator />
-        <BottomNavBar
+        <BottomBar
           className={styles.bottom_nav_shadow}
           style={{ position: "relative" }}
         />

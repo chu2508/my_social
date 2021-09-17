@@ -1,5 +1,5 @@
 import { getCurrentUser } from "@src/services/auth";
-import IUserProfile from "@src/types/IUserProfile";
+import IUserProfile from "@src/domain/types/IUserProfile";
 import { call, put, takeLeading } from "redux-saga/effects";
 import { actionTypes } from "../actions";
 import { setUserProfileAction } from "../actions/application";

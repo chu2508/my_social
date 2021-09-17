@@ -1,4 +1,4 @@
-import PersonalBadgeType from "@src/types/PersonalBadgeType";
+import PersonalBadgeType from "@src/domain/types/PersonalBadgeType";
 import { View } from "@tarojs/components";
 import { BiHeart } from "react-icons/bi";
 import styles from './style.module.scss';

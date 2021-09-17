@@ -4,7 +4,7 @@ import classNames from "classnames";
 import ResumeHeader from "./ResumeHeader";
 import styles from "./style.module.scss";
 
-const PersonalInfo = () => {
+const InfoDetail = () => {
   const urlList = [
     "https://bbswater-fd.zol-img.com.cn/t_s1200x5000/g5/M00/06/0C/ChMkJlcZxHCIPOeAAAsFPHIxg_gAAQZmADxJasACwVU507.jpg",
     "https://bbswater-fd.zol-img.com.cn/t_s1200x5000/g5/M00/06/0C/ChMkJ1cZxHGIfYlNAAruHPgJDd8AAQZmAEB6-wACu40115.jpg",
@@ -57,4 +57,4 @@ const PersonalInfo = () => {
   );
 };
 
-export default PersonalInfo;
+export default InfoDetail;

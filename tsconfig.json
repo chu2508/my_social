@@ -19,7 +19,9 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "paths": {
-      "@src/*": ["src/*"]
+      "@bis/*": ["src/components/business/*"],
+      "@ui/*": ["src/components/ui/*"],
+      "@src/*": ["src/*"],
     },
     "typeRoots": [
       "node_modules/@types",

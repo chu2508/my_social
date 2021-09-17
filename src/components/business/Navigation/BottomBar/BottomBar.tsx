@@ -1,13 +1,12 @@
+import IUserProfile from "@src/domain/types/IUserProfile";
 import { RootState } from "@src/store/reducer";
-import IUserProfile from "@src/types/IUserProfile";
 import { Text, View } from "@tarojs/components";
 import { ViewProps } from "@tarojs/components/types/View";
-import Taro from "@tarojs/taro";
 import classNames from "classnames";
 import React, { ReactElement } from "react";
-import { BiHappy, BiHeart, BiMessage } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import styles from "./style.module.scss";
+import useBottomBar from "./useBottomBar";
 
 interface NavItemProps extends ViewProps {
   icon: ReactElement;
@@ -22,26 +21,15 @@ const NavItem = (props: NavItemProps) => {
     </View>
   );
 };
-
-const NAV_CONFIG = [
-  {
-    icon: BiHeart,
-    name: "寻觅",
-    path: "/pages/home/index"
-  },
-  {
-    icon: BiMessage,
-    name: "消息",
-    path: "/pages/chat/index"
-  },
-  { icon: BiHappy, name: "我的", path: "/pages/about/index" }
-];
-interface BottomNavBarProps extends ViewProps {
+interface BottomBarProps extends ViewProps {
   activeIndex?: number;
 }
-const BottomNavBar = (props: BottomNavBarProps) => {
+const BottomBar = (props: BottomBarProps) => {
+  const { config } = useBottomBar();
   const { activeIndex = 0 } = props;
-  const profile = useSelector<RootState, IUserProfile>(state => state.application.userProfile);
+  const profile = useSelector<RootState, IUserProfile>(
+    state => state.application.userProfile
+  );
 
   const onNavClick = (path: string) => {
     Taro.navigateTo({ url: path });
@@ -49,31 +37,26 @@ const BottomNavBar = (props: BottomNavBarProps) => {
 
   return (
     <View {...props} className={classNames(styles.wrapper, props.className)}>
-      {NAV_CONFIG.map((config, index) => {
+      {config.map((item, index) => {
         const className = classNames(styles.item_icon, {
           [styles["is-active"]]: index === activeIndex
         });
-        const onClick = () =>{
+        const onClick = () => {
           if (profile.isTourist) {
             return Taro.showToast({
               duration: 5000,
-              title: 'Is tourist'
-            })
+              title: "Is tourist"
+            });
           }
-          onNavClick(config.path)
-        }
-        const icon = <config.icon size={24} className={className} />;
+          onNavClick(item.path);
+        };
+        const icon = <item.icon size={24} className={className} />;
         return (
-          <NavItem
-            key={config.name}
-            {...config}
-            icon={icon}
-            onClick={onClick}
-          />
+          <NavItem key={item.name} {...item} icon={icon} onClick={onClick} />
         );
       })}
     </View>
   );
 };
 
-export default BottomNavBar;
+export default BottomBar;

@@ -1,4 +1,4 @@
-import { BottomNavBar } from "@src/components/business";
+import BottomBar from "@bis/Navigation/BottomBar/BottomBar";
 import { Image, Text, View } from "@tarojs/components";
 import faker from "faker";
 import { BiCheckShield, BiChevronRight } from "react-icons/bi";
@@ -29,7 +29,7 @@ const About = () => {
       <SocialCounter />
       <OptionList />
       <View style={{textAlign:'center', fontSize: '12px'}}>青藤号:123456789</View>
-      <BottomNavBar activeIndex={2} />
+      <BottomBar activeIndex={2} />
     </View>
   );
 };

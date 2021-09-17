@@ -1,5 +1,6 @@
-import { BadgeOverlay, PersonalCard } from "@src/components/business";
-import ISimplePersonInfo from "@src/types/ISimplePersonInfo";
+import { BadgeOverlay } from "@bis/Personal/Overlay";
+import PersonalCard from "@bis/Personal/SimpleCard";
+import ISimplePersonInfo from "@src/domain/types/ISimplePersonInfo";
 import { View } from "@tarojs/components";
 import faker from "faker";
 import { useState } from "react";
