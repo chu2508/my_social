@@ -10,6 +10,10 @@ const mockData: IPersonalInfoWhitRecommend[] = Array.from({ length: 5 }).map<
     likeStatus: null
   };
 });
+/**
+ * 陌生人推荐服务
+ * @returns 返回陌生人列表，喜欢或不喜欢接口以及count记数
+ */
 export default function useStrangeRecommendationService() {
   const [people, setPeople] = useState(mockData);
   const person = people.find(p => p.likeStatus === null) ?? null;
@@ -22,11 +26,11 @@ export default function useStrangeRecommendationService() {
         total.notLikeTotal++;
       }
       if (cur.likeStatus === null) {
-        total.usedTotal++
+        total.usedTotal++;
       }
       return total;
     },
-    { likeTotal: 0, notLikeTotal: 0, usedTotal: 0}
+    { likeTotal: 0, notLikeTotal: 0, usedTotal: 0 }
   );
 
   const like = (id: string) => {
@@ -47,4 +51,6 @@ export default function useStrangeRecommendationService() {
   return { people, person, like, notLike, likeTotal, notLikeTotal, usedTotal };
 }
 
-export const StrangeRecommendationService = getServiceToken(useStrangeRecommendationService);
+export const StrangeRecommendationService = getServiceToken(
+  useStrangeRecommendationService
+);
