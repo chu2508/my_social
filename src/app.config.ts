@@ -3,7 +3,8 @@ export default {
     "pages/about/index",
     "pages/home/index",
     "pages/i_likes/index",
-    "pages/likes_me/index"
+    "pages/likes_me/index",
+    "pages/communication/index"
   ],
   window: {
     backgroundTextStyle: "light",
@@ -15,13 +16,13 @@ export default {
     custom: true,
     list: [
       {
-        pagePath: "/pages/home/index"
+        pagePath: "pages/home/index"
       },
       {
-        pagePath: "/pages/message/index"
+        pagePath: "pages/communication/index"
       },
       {
-        pagePath: "/pages/about/index"
+        pagePath: "pages/about/index"
       }
     ]
   }

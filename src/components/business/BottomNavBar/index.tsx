@@ -1,11 +1,10 @@
 import { AuthenticationService } from "@bis/Authentication/useAuthenticationService";
 import { StrangeRecommendationService } from "@bis/StrangeRecommendation/useStrangeRecommendationService";
-import useForceUpdate from "@src/tools/useForceUpdate";
 import { Text, View } from "@tarojs/components";
 import { ViewProps } from "@tarojs/components/types/View";
-import Taro, { useDidShow } from "@tarojs/taro";
+import Taro from "@tarojs/taro";
 import classNames from "classnames";
-import React, { ReactElement, useContext } from "react";
+import { ReactElement, useContext } from "react";
 import { BiHappy, BiHeart, BiMessage } from "react-icons/bi";
 import styles from "./style.module.scss";
 
@@ -34,7 +33,7 @@ const NAV_CONFIG = [
   {
     icon: BiMessage,
     name: "消息",
-    path: "/pages/message/index"
+    path: "/pages/communication/index"
   },
   { icon: BiHappy, name: "我的", path: "/pages/about/index" }
 ];
@@ -45,7 +44,7 @@ const BottomNavBar = (props: BottomNavBarProps) => {
   const { activeIndex = 0 } = props;
   const { usedTotal } = useContext(StrangeRecommendationService);
   const { profile } = useContext(AuthenticationService);
-  
+
   const onNavClick = (path: string) => {
     if (profile.isTourist) {
     }
