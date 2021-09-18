@@ -1,3 +1,18 @@
+
+const tabBar =  {
+  custom: true,
+  list: [
+    {
+      pagePath: "pages/home/index"
+    },
+    {
+      pagePath: "pages/communication/index"
+    },
+    {
+      pagePath: "pages/about/index"
+    }
+  ]
+}
 export default {
   pages: [
     "pages/about/index",
@@ -12,18 +27,5 @@ export default {
     navigationBarTitleText: "WeChat",
     navigationBarTextStyle: "black"
   },
-  tabBar: {
-    custom: true,
-    list: [
-      {
-        pagePath: "pages/home/index"
-      },
-      {
-        pagePath: "pages/communication/index"
-      },
-      {
-        pagePath: "pages/about/index"
-      }
-    ]
-  }
+  tabBar: process.env.TARO_ENV !== 'h5' ? tabBar : undefined
 };
