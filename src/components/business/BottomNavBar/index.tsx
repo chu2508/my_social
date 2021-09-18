@@ -45,20 +45,7 @@ const BottomNavBar = (props: BottomNavBarProps) => {
   const { activeIndex = 0 } = props;
   const { usedTotal } = useContext(StrangeRecommendationService);
   const { profile } = useContext(AuthenticationService);
-  const forceUpdate = useForceUpdate();
-
-  useDidShow(() => {
-    console.log('bar')
-  })
-
-  // useEffect(() => {
-  //   const instance = getCurrentInstance();
-  //   if (instance.router) eventCenter.on(instance.router.onShow, forceUpdate);
-  //   return () => {
-  //     instance.router && eventCenter.off(instance.router.onShow, forceUpdate);
-  //   };
-  // }, [forceUpdate]);
-
+  
   const onNavClick = (path: string) => {
     if (profile.isTourist) {
     }
