@@ -8,7 +8,6 @@ import { FC } from "react";
 import "./app.scss";
 
 const App: FC = props => {
-  console.log("props.children", props.children);
   const authenticationState = useAuthenticationService();
   const strangeRecommendState = useStrangeRecommendationService();
   return (
