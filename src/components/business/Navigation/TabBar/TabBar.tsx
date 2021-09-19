@@ -1,12 +1,9 @@
-import { AuthenticationService } from "@bis/Authentication/useAuthenticationService";
-import { StrangeRecommendationService } from "@bis/StrangeRecommendation/useStrangeRecommendationService";
 import { Text, View } from "@tarojs/components";
 import { ViewProps } from "@tarojs/components/types/View";
-import Taro from "@tarojs/taro";
 import classNames from "classnames";
-import { ReactElement, useContext } from "react";
-import { BiHappy, BiHeart, BiMessage } from "react-icons/bi";
+import { ReactElement } from "react";
 import styles from "./style.module.scss";
+import useTabBar from "./useTabBar";
 
 interface NavItemProps extends ViewProps {
   icon: ReactElement;
@@ -17,43 +14,25 @@ interface NavItemProps extends ViewProps {
 const NavItem = (props: NavItemProps) => {
   return (
     <View {...props} className={styles.item_wrap}>
-      {!!props.count && <View>{props.count}</View>}
-      {props.icon}
-      <Text className={styles.item_name}>{props.name}</Text>
+      <View className={styles.item}>
+        {!!props.count && <View className={styles.badge}>{props.count}</View>}
+        {props.icon}
+        <Text className={styles.item_name}>{props.name}</Text>
+      </View>
     </View>
   );
 };
 
-const NAV_CONFIG = [
-  {
-    icon: BiHeart,
-    name: "寻觅",
-    path: "/pages/home/index"
-  },
-  {
-    icon: BiMessage,
-    name: "消息",
-    path: "/pages/communication/index"
-  },
-  { icon: BiHappy, name: "我的", path: "/pages/about/index" }
-];
 interface TabBarProps extends ViewProps {
   activeIndex?: number;
 }
 const TabBar = (props: TabBarProps) => {
   const { activeIndex = 0 } = props;
-  const { usedTotal } = useContext(StrangeRecommendationService);
-  const { profile } = useContext(AuthenticationService);
-
-  const onNavClick = (path: string) => {
-    if (profile.isTourist) {
-    }
-    Taro.switchTab({ url: path });
-  };
+  const { navItems, usedTotal, onNavClick } = useTabBar();
 
   return (
     <View {...props} className={classNames(styles.wrapper, props.className)}>
-      {NAV_CONFIG.map((config, index) => {
+      {navItems.map((config, index) => {
         const className = classNames(styles.item_icon, {
           [styles["is-active"]]: index === activeIndex
         });
