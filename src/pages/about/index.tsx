@@ -1,3 +1,4 @@
+import Questions from "@bis/Questions/Questions";
 import { BottomNavBar } from "@src/components/business";
 import { Image, Text, View } from "@tarojs/components";
 import faker from "faker";
@@ -28,6 +29,7 @@ const About = () => {
       </View>
       <SocialCounter />
       <OptionList />
+      <Questions />
       <View style={{ textAlign: "center", fontSize: "12px" }}>
         青藤号:123456789
       </View>
