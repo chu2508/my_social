@@ -1,5 +1,5 @@
+import { TabBar } from "@bis/index";
 import Questions from "@bis/Questions/Questions";
-import { BottomNavBar } from "@src/components/business";
 import { Image, Text, View } from "@tarojs/components";
 import faker from "faker";
 import { BiCheckShield, BiChevronRight } from "react-icons/bi";
@@ -33,7 +33,7 @@ const About = () => {
       <View style={{ textAlign: "center", fontSize: "12px" }}>
         青藤号:123456789
       </View>
-      <BottomNavBar activeIndex={2} />
+      <TabBar activeIndex={2} />
     </View>
   );
 };

@@ -1,10 +1,10 @@
-import { BottomNavBar } from "@src/components/business";
+import { TabBar } from "@bis/index";
+import { StrangeRecommendationService } from "@bis/StrangeRecommendation/useStrangeRecommendationService";
 import PersonalInfo from "@src/components/business/PersonalInfo";
 import IPersonalInfo from "@src/types/IPersonalInfo";
 import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { useContext } from "react";
-import { StrangeRecommendationService } from "../../components/business/StrangeRecommendation/useStrangeRecommendationService";
 import BottomOperator from "./components/BottomOperator";
 import NextSeek from "./components/NextSeek/NextSeek";
 import useScrollDirection from "./hooks/useScrollDirection";
@@ -35,13 +35,13 @@ const Home = () => {
           })}
         >
           <BottomOperator />
-          <BottomNavBar
+          <TabBar
             className={styles.bottom_nav_shadow}
             style={{ position: "relative" }}
           />
         </View>
       )}
-      {state.person === null && <BottomNavBar />}
+      {state.person === null && <TabBar />}
     </View>
   );
 };

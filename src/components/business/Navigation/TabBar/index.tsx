@@ -37,10 +37,10 @@ const NAV_CONFIG = [
   },
   { icon: BiHappy, name: "我的", path: "/pages/about/index" }
 ];
-interface BottomNavBarProps extends ViewProps {
+interface TabBarProps extends ViewProps {
   activeIndex?: number;
 }
-const BottomNavBar = (props: BottomNavBarProps) => {
+const TabBar = (props: TabBarProps) => {
   const { activeIndex = 0 } = props;
   const { usedTotal } = useContext(StrangeRecommendationService);
   const { profile } = useContext(AuthenticationService);
@@ -72,4 +72,4 @@ const BottomNavBar = (props: BottomNavBarProps) => {
   );
 };
 
-export default BottomNavBar;
+export default TabBar;
