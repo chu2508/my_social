@@ -1,0 +1,68 @@
+.item {
+  display: flex;
+  padding: 10px;
+  height: 64px;
+  align-items: center;
+  background: #fff;
+}
+.item_left {
+  flex: 1 1;
+}
+.title {
+  font-size: 28px;
+  font-weight: bold;
+}
+.sub_title {
+  font-size: 24px;
+}
+.item_btn {
+  font-size: 24px;
+  border-radius: 999px;
+  padding: 8px 24px;
+  background: #666;
+  color: white;
+  font-weight: bold;
+  &.active {
+    background: tomato;
+    color: white;
+  }
+  &.confirm {
+    background: #eee;
+    color: #333;
+  }
+}
+
+@mixin full {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+.dialog {
+  position: fixed;
+  z-index: 9999;
+  @include full();
+  .mask {
+    position: absolute;
+    @include full();
+    background: rgba($color: #000000, $alpha: 0.3);
+    z-index: 0;
+  }
+  .container {
+    position: absolute;
+    @include full();
+    top: initial;
+    z-index: 1;
+  }
+}
+
+.panel_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.head_right {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
