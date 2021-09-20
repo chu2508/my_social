@@ -23,6 +23,7 @@ export default function useTabBar() {
   const { profile } = useContext(AuthenticationService);
   const onNavClick = (path: string) => {
     if (profile.isTourist) {
+      // to dos something
     }
     Taro.switchTab({ url: path });
   };

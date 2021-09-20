@@ -11,7 +11,7 @@ const touristProfile = {
 
 /**
  * 用户认证服务，返回用户的账户相关信息，以及登录注册方法
- * @returns 
+ * @returns
  */
 export default function useAuthenticationService() {
   const [profile, setProfile] = useState<IUserProfile>(touristProfile);
