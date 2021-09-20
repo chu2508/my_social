@@ -1,15 +1,8 @@
+import makePersonalInfo from "@src/mock/makePersonalInfo";
 import getServiceToken from "@src/tools/getServiceToken";
-import { IPersonalInfoWhitRecommend } from "@src/types/IPersonalInfoWhitRecommend";
 import { useState } from "react";
 
-const mockData: IPersonalInfoWhitRecommend[] = Array.from({ length: 5 }).map<
-  IPersonalInfoWhitRecommend
->((_, id) => {
-  return {
-    id: String(id + 1),
-    likeStatus: null
-  };
-});
+const mockData = makePersonalInfo();
 /**
  * 陌生人推荐服务
  * @returns 返回陌生人列表，喜欢或不喜欢接口以及count记数
